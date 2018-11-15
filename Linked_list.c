@@ -139,100 +139,101 @@ int main(){
 	struct linked_list * head_of_list = NULL;
 	struct linked_list * current_of_list = NULL;
 
-	if(!append(&head_of_list, 1)){
-		printf("Memory allocation failed while appending node.\n");
-		return 0;
+	printf("1: Append\n");
+	printf("2: Detach\n");
+	printf("3: Push\n");
+	printf("4: Pop\n");
+	printf("5: Insert\n");
+	printf("6: Delete\n");
+	printf("7: See the list\n");
+	printf("8: See all options\n");
+	printf("9: Quit\n");
+	while(1){
+		printf("> ");
+		int option;
+		scanf("%d", &option);
+		if(option == 1){
+			int value_to_append;
+			printf("The integer to append?: ");
+			scanf("%d", &value_to_append);
+			if(append(&head_of_list, value_to_append)){
+				printf("%d appended.\n", value_to_append);
+			}else{
+				printf("Memory allocation failed while appending node.\n");
+				return 0;
+			}
+		}else if(option == 2){
+			int detached_value;
+			if(detach(&head_of_list, &detached_value)){
+				printf("%d detached.\n", detached_value);
+			}else{
+				printf("There's nothing to detach.\n");
+			}
+		}else if(option == 3){
+			int value_to_push;
+			printf("The integer to push?: ");
+			scanf("%d", &value_to_push);
+			if(push(&head_of_list, value_to_push)){
+				printf("%d pushed.\n", value_to_push);
+			}else{
+				printf("Memory allocation failed while pushing node.\n");
+				return 0;
+			}
+		}else if(option == 4){
+			int popped_value;
+			if(pop(&head_of_list, &popped_value)){
+				printf("%d popped.\n", popped_value);
+			}else{
+				printf("There's nothing to pop.\n");
+			}
+		}else if(option == 5){
+			struct linked_list * previous_of_new = NULL;
+			int value_to_insert;
+			printf("The integer to insert?: ");
+			scanf("%d", &value_to_insert);
+			find_prev(head_of_list, &previous_of_new, value_to_insert);
+			if(insert(&head_of_list, previous_of_new, value_to_insert)){
+				printf("%d inserted before the first greater integer.\n", value_to_insert);
+			}else{
+				printf("Memory allocation failed while inserting node.\n");
+				return 0;
+			}
+		}else if(option == 6){
+			int value_to_delete;
+			printf("The integer to delete?: ");
+			scanf("%d", &value_to_delete);
+			if(delete(&head_of_list, value_to_delete)){
+				printf("The first %d deleted.\n", value_to_delete);
+			}else{
+				printf("There's nothing to delete.\n");
+			}
+		}else if(option == 7){
+			current_of_list = head_of_list;
+			while(current_of_list != NULL){
+				printf("%d ", current_of_list->value);
+				current_of_list = current_of_list->next;
+			}
+			printf("\n");
+		}else if(option == 8){
+			printf("1: Append\n");
+			printf("2: Detach\n");
+			printf("3: Push\n");
+			printf("4: Pop\n");
+			printf("5: Insert\n");
+			printf("6: Delete\n");
+			printf("7: See the list\n");
+			printf("8: See all options\n");
+			printf("9: Quit\n");
+		}else if(option == 9){
+			current_of_list = head_of_list;
+			while(current_of_list != NULL){
+				struct linked_list * temp = current_of_list;
+				current_of_list = current_of_list->next;
+				free(temp);
+			}
+			return 0;
+		}else{
+			printf("Invalid option.\n");
+		}
 	}
-	if(!append(&head_of_list, 2)){
-		printf("Memory allocation failed while appending node.\n");
-		return 0;
-	}
-	if(!append(&head_of_list, 3)){
-		printf("Memory allocation failed while appending node.\n");
-		return 0;
-	}
-
-	if(!push(&head_of_list, -1)){
-		printf("Memory allocation failed while pushing node.\n");
-		return 0;
-	}
-	if(!push(&head_of_list, -2)){
-		printf("Memory allocation failed while pushing node.\n");
-		return 0;
-	}
-	if(!push(&head_of_list, -3)){
-		printf("Memory allocation failed while pushing node.\n");
-		return 0;
-	}
-
-	struct linked_list * previous_of_new = NULL;
-	int value_to_insert;
-	value_to_insert = -4;
-	find_prev(head_of_list, &previous_of_new, value_to_insert);
-	if(!insert(&head_of_list, previous_of_new, value_to_insert)){
-		printf("Memory allocation failed while inserting node.\n");
-	}
-
-	value_to_insert = 0;
-	find_prev(head_of_list, &previous_of_new, value_to_insert);
-	if(!insert(&head_of_list, previous_of_new, value_to_insert)){
-		printf("Memory allocation failed while inserting node.\n");
-	}
-
-	value_to_insert = 4;
-	find_prev(head_of_list, &previous_of_new, value_to_insert);
-	if(!insert(&head_of_list, previous_of_new, value_to_insert)){
-		printf("Memory allocation failed while inserting node.\n");
-	}
-
-	current_of_list = head_of_list;
-	while(current_of_list != NULL){
-		printf("%d ", current_of_list->value);
-		current_of_list = current_of_list->next;
-	}
-	printf("\n");
-
-	int popped_value;
-	if(pop(&head_of_list, &popped_value)){
-		printf("%d popped.\n", popped_value);
-	}else{
-		printf("There's nothing to pop. ");
-	}
-
-	int detached_value;
-	if(detach(&head_of_list, &detached_value)){
-		printf("%d detached.\n", detached_value);
-	}else{
-		printf("There's nothing to detach. ");
-	}
-
-	int value_to_delete;
-	value_to_delete = -3;
-	if(!delete(&head_of_list, value_to_delete)){
-		printf("There's nothing to delete.\n");
-	}
-	value_to_delete = 0;
-	if(!delete(&head_of_list, value_to_delete)){
-		printf("There's nothing to delete.\n");
-	}
-	value_to_delete = 3;
-	if(!delete(&head_of_list, value_to_delete)){
-		printf("There's nothing to delete.\n");
-	}
-
-	current_of_list = head_of_list;
-	while(current_of_list != NULL){
-		printf("%d ", current_of_list->value);
-		current_of_list = current_of_list->next;
-	}
-	printf("\n");
-
-	current_of_list = head_of_list;
-	while(current_of_list != NULL){
-		struct linked_list * temp = current_of_list;
-		current_of_list = current_of_list->next;
-		free(temp);
-	}
-
-	return 0;
 };
