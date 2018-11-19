@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct linked_list{
+struct singly_linked_int_list{
 	int value;
-	struct linked_list * next;
+	struct singly_linked_int_list * next;
 };
 
-int append(struct linked_list ** head_ref, int new_value){
-	struct linked_list * new_node = malloc(sizeof(struct linked_list));
+int append(struct singly_linked_int_list ** head_ref, int new_value){
+	struct singly_linked_int_list * new_node = malloc(sizeof(struct singly_linked_int_list));
 	if(new_node == NULL){
 		return 0;
 	}else{
@@ -17,7 +17,7 @@ int append(struct linked_list ** head_ref, int new_value){
 			*head_ref = new_node;
 			return 1;
 		}else{
-			struct linked_list * current_node = *head_ref;
+			struct singly_linked_int_list * current_node = *head_ref;
 			while(current_node->next != NULL){
 				current_node = current_node->next;
 			}
@@ -27,7 +27,7 @@ int append(struct linked_list ** head_ref, int new_value){
 	}
 };
 
-int detach(struct linked_list ** head_ref, int * detached_value_ref){
+int detach(struct singly_linked_int_list ** head_ref, int * detached_value_ref){
 	if(*head_ref == NULL){
 		return 0;
 	}else if((*head_ref)->next == NULL){
@@ -36,7 +36,7 @@ int detach(struct linked_list ** head_ref, int * detached_value_ref){
 		*head_ref = NULL;
 		return 1;
 	}else{
-		struct linked_list * current_node = *head_ref;
+		struct singly_linked_int_list * current_node = *head_ref;
 		while(current_node->next->next != NULL){
 			current_node = current_node->next;
 		}
@@ -47,8 +47,8 @@ int detach(struct linked_list ** head_ref, int * detached_value_ref){
 	}
 };
 
-int push(struct linked_list ** head_ref, int new_value){
-	struct linked_list * new_node = malloc(sizeof(struct linked_list));
+int push(struct singly_linked_int_list ** head_ref, int new_value){
+	struct singly_linked_int_list * new_node = malloc(sizeof(struct singly_linked_int_list));
 	if(new_node == NULL){
 		return 0;
 	}else{
@@ -65,20 +65,20 @@ int push(struct linked_list ** head_ref, int new_value){
 	}
 };
 
-int pop(struct linked_list ** head_ref, int * popped_value_ref){
+int pop(struct singly_linked_int_list ** head_ref, int * popped_value_ref){
 	if(*head_ref == NULL){
 		return 0;
 	}else{
 		*popped_value_ref = (*head_ref)->value;
-		struct linked_list * temp = *head_ref;
+		struct singly_linked_int_list * temp = *head_ref;
 		*head_ref = (*head_ref)->next;
 		free(temp);
 		return 1;
 	}
 };
 
-int insert(struct linked_list ** head_ref, struct linked_list * previous_node, int new_value){
-	struct linked_list * new_node = malloc(sizeof(struct linked_list));
+int insert(struct singly_linked_int_list ** head_ref, struct singly_linked_int_list * previous_node, int new_value){
+	struct singly_linked_int_list * new_node = malloc(sizeof(struct singly_linked_int_list));
 	if(new_node == NULL){
 		return 0;
 	}else{
@@ -96,20 +96,20 @@ int insert(struct linked_list ** head_ref, struct linked_list * previous_node, i
 	}
 };
 
-int delete(struct linked_list ** head_ref, int value_to_del){
+int delete(struct singly_linked_int_list ** head_ref, int value_to_del){
 	if(*head_ref == NULL){
 		return 0;
 	}else{
 		if((*head_ref)->value == value_to_del){
-			struct linked_list * temp = *head_ref;
+			struct singly_linked_int_list * temp = *head_ref;
 			*head_ref = (*head_ref)->next;
 			free(temp);
 			return 1;
 		}else{
-			struct linked_list * current_node = *head_ref;
+			struct singly_linked_int_list * current_node = *head_ref;
 			while(current_node->next != NULL){
 				if(current_node->next->value == value_to_del){
-					struct linked_list * temp = current_node->next;
+					struct singly_linked_int_list * temp = current_node->next;
 					current_node->next = current_node->next->next;
 					free(temp);
 					return 1;
@@ -121,8 +121,8 @@ int delete(struct linked_list ** head_ref, int value_to_del){
 	}
 };
 
-void find_prev(struct linked_list * head_node, struct linked_list ** previous_ref, int new_value){
-	struct linked_list * current_node = head_node;
+void find_prev(struct singly_linked_int_list * head_node, struct singly_linked_int_list ** previous_ref, int new_value){
+	struct singly_linked_int_list * current_node = head_node;
 	*previous_ref = NULL;
 	while(current_node != NULL){
 		if(current_node->value < new_value){
@@ -136,8 +136,8 @@ void find_prev(struct linked_list * head_node, struct linked_list ** previous_re
 };
 
 int main(){
-	struct linked_list * head_of_list = NULL;
-	struct linked_list * current_of_list = NULL;
+	struct singly_linked_int_list * head_of_list = NULL;
+	struct singly_linked_int_list * current_of_list = NULL;
 
 	printf("1: Append\n");
 	printf("2: Detach\n");
@@ -187,7 +187,7 @@ int main(){
 				printf("There's nothing to pop.\n");
 			}
 		}else if(option == 5){
-			struct linked_list * previous_of_new = NULL;
+			struct singly_linked_int_list * previous_of_new = NULL;
 			int value_to_insert;
 			printf("The integer to insert?: ");
 			scanf("%d", &value_to_insert);
@@ -227,7 +227,7 @@ int main(){
 		}else if(option == 9){
 			current_of_list = head_of_list;
 			while(current_of_list != NULL){
-				struct linked_list * temp = current_of_list;
+				struct singly_linked_int_list * temp = current_of_list;
 				current_of_list = current_of_list->next;
 				free(temp);
 			}
