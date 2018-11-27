@@ -17,7 +17,7 @@ char * prompt(char * mesg){
 			name[pos] = c;
 			pos++;
 			if(pos > size - 1){
-				char *tmp = malloc(sizeof(char) * (size + 16));
+				char * tmp = malloc(sizeof(char) * (size + 16));
 				if(tmp == NULL){
 					free(name);
 					return NULL;
