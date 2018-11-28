@@ -60,6 +60,11 @@ void list_print(struct singly_linked_int_list * head_ref){
 	return;
 };
 
+void stack_create(struct int_stack * stack_ref){
+	stack_ref->stack_list = NULL;
+	return;
+};
+
 int stack_push(struct int_stack * stack_ref, int new_value){
 	return list_push(&(stack_ref->stack_list), new_value);
 };
@@ -80,11 +85,11 @@ void stack_print(struct int_stack * stack_ref){
 
 int main(){
 	struct int_stack stack;
-	stack.stack_list = NULL;
+	stack_create(&stack);
 
 	printf("1: Push\n");
 	printf("2: Pop\n");
-	printf("3: Clear\n");
+	printf("3: Clear the stack\n");
 	printf("4: See the stack\n");
 	printf("5: See all options\n");
 	printf("0: Quit\n");
@@ -118,7 +123,7 @@ int main(){
 		}else if(option == 5){
 			printf("1: Push\n");
 			printf("2: Pop\n");
-			printf("3: Clear\n");
+			printf("3: Clear the stack\n");
 			printf("4: See the stack\n");
 			printf("5: See all options\n");
 			printf("0: Quit\n");

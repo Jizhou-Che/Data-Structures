@@ -190,7 +190,7 @@ int main(){
 	printf("4: Pop\n");
 	printf("5: Insert\n");
 	printf("6: Delete\n");
-	printf("7: Clear\n");
+	printf("7: Clear the list\n");
 	printf("8: See the list\n");
 	printf("9: See all options\n");
 	printf("0: Quit\n");
@@ -266,7 +266,7 @@ int main(){
 			printf("4: Pop\n");
 			printf("5: Insert\n");
 			printf("6: Delete\n");
-			printf("7: Clear\n");
+			printf("7: Clear the list\n");
 			printf("8: See the list\n");
 			printf("9: See all options\n");
 			printf("0: Quit\n");
