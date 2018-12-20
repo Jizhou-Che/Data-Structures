@@ -113,6 +113,7 @@ int main(){
 				printf("%d enqueued.\n", value_to_enqueue);
 			}else{
 				printf("Memory allocation failed while enqueuing node.\n");
+				queue_clear(&queue);
 				return 0;
 			}
 		}else if(option == 2){

@@ -315,6 +315,7 @@ int main(){
 				printf("%d inserted.\n", value_to_insert);
 			}else{
 				printf("Memory allocation failed while inserting node.\n");
+				binary_tree_clear(&tree);
 				return 0;
 			}
 		}else if(option == 2){

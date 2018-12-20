@@ -207,6 +207,7 @@ int main(){
 				printf("%d appended.\n", value_to_append);
 			}else{
 				printf("Memory allocation failed while appending node.\n");
+				list_clear(&head_of_list, &tail_of_list);
 				return 0;
 			}
 		}else if(option == 2){
@@ -224,6 +225,7 @@ int main(){
 				printf("%d pushed.\n", value_to_push);
 			}else{
 				printf("Memory allocation failed while pushing node.\n");
+				list_clear(&head_of_list, &tail_of_list);
 				return 0;
 			}
 		}else if(option == 4){
@@ -243,6 +245,7 @@ int main(){
 				printf("%d inserted before the first greater integer.\n", value_to_insert);
 			}else{
 				printf("Memory allocation failed while inserting node.\n");
+				list_clear(&head_of_list, &tail_of_list);
 				return 0;
 			}
 		}else if(option == 6){

@@ -106,6 +106,7 @@ int main(){
 				printf("%d pushed.\n", value_to_push);
 			}else{
 				printf("Memory allocation failed while pushing node.\n");
+				stack_clear(&stack);
 				return 0;
 			}
 		}else if(option == 2){
