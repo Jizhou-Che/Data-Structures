@@ -33,7 +33,7 @@ int list_append(struct singly_linked_tree_list ** head_ref, struct singly_linked
 		}
 		return 1;
 	}
-};
+}
 
 int list_pop(struct singly_linked_tree_list ** head_ref, struct singly_linked_tree_list ** tail_ref){
 	if(*head_ref == NULL){
@@ -47,21 +47,21 @@ int list_pop(struct singly_linked_tree_list ** head_ref, struct singly_linked_tr
 		}
 		return 1;
 	}
-};
+}
 
 void queue_create(struct tree_queue * queue_ref){
 	queue_ref->queue_list_head = NULL;
 	queue_ref->queue_list_tail = NULL;
 	return;
-};
+}
 
 int enqueue(struct tree_queue * queue_ref, struct binary_search_int_tree * node_to_enqueue){
 	return list_append(&(queue_ref->queue_list_head), &(queue_ref->queue_list_tail), node_to_enqueue);
-};
+}
 
 int dequeue(struct tree_queue * queue_ref){
 	return list_pop(&(queue_ref->queue_list_head), &(queue_ref->queue_list_tail));
-};
+}
 
 int binary_search_tree_insert(struct binary_search_int_tree ** tree_ref, int new_value){
 	struct binary_search_int_tree * new_node = malloc(sizeof(struct binary_search_int_tree));
@@ -86,7 +86,7 @@ int binary_search_tree_insert(struct binary_search_int_tree ** tree_ref, int new
 		}
 		return 1;
 	}
-};
+}
 
 int binary_search_tree_delete(struct binary_search_int_tree ** tree_ref, int value_to_delete){
 	if(*tree_ref == NULL){
@@ -193,7 +193,7 @@ int binary_search_tree_delete(struct binary_search_int_tree ** tree_ref, int val
 		}
 		return 0;
 	}
-};
+}
 
 int binary_search_tree_search(struct binary_search_int_tree * tree_ref, int value_to_search){
 	if(tree_ref == NULL){
@@ -217,7 +217,7 @@ int binary_search_tree_search(struct binary_search_int_tree * tree_ref, int valu
 			}
 		}
 	}
-};
+}
 
 void binary_tree_clear(struct binary_search_int_tree ** tree_ref){
 	if(*tree_ref != NULL){
@@ -231,7 +231,7 @@ void binary_tree_clear(struct binary_search_int_tree ** tree_ref){
 		*tree_ref = NULL;
 	}
 	return;
-};
+}
 
 void binary_tree_print_depth_first_in_order(struct binary_search_int_tree * tree_ref){
 	if(tree_ref != NULL){
@@ -244,7 +244,7 @@ void binary_tree_print_depth_first_in_order(struct binary_search_int_tree * tree
 		}
 	}
 	return;
-};
+}
 
 void binary_tree_print_depth_first_pre_order(struct binary_search_int_tree * tree_ref){
 	if(tree_ref != NULL){
@@ -257,7 +257,7 @@ void binary_tree_print_depth_first_pre_order(struct binary_search_int_tree * tre
 		}
 	}
 	return;
-};
+}
 
 void binary_tree_print_depth_first_post_order(struct binary_search_int_tree * tree_ref){
 	if(tree_ref != NULL){
@@ -270,7 +270,7 @@ void binary_tree_print_depth_first_post_order(struct binary_search_int_tree * tr
 		printf("%d ", tree_ref->value);
 	}
 	return;
-};
+}
 
 void binary_tree_print_breadth_first(struct tree_queue * queue_ref){
 	if(queue_ref->queue_list_head != NULL){
@@ -285,7 +285,7 @@ void binary_tree_print_breadth_first(struct tree_queue * queue_ref){
 		binary_tree_print_breadth_first(queue_ref);
 	}
 	return;
-};
+}
 
 int main(){
 	struct binary_search_int_tree * tree = NULL;
@@ -372,4 +372,4 @@ int main(){
 			printf("Invalid option.\n");
 		}
 	}
-};
+}

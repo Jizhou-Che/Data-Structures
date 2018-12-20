@@ -25,7 +25,7 @@ int list_append(struct doubly_linked_int_list ** head_ref, struct doubly_linked_
 		}
 		return 1;
 	}
-};
+}
 
 int list_detach(struct doubly_linked_int_list ** head_ref, struct doubly_linked_int_list ** tail_ref, int * detached_value_ref){
 	if(*tail_ref == NULL){
@@ -42,7 +42,7 @@ int list_detach(struct doubly_linked_int_list ** head_ref, struct doubly_linked_
 		}
 		return 1;
 	}
-};
+}
 
 int list_push(struct doubly_linked_int_list ** head_ref, struct doubly_linked_int_list ** tail_ref, int new_value){
 	struct doubly_linked_int_list * new_node = malloc(sizeof(struct doubly_linked_int_list));
@@ -62,7 +62,7 @@ int list_push(struct doubly_linked_int_list ** head_ref, struct doubly_linked_in
 		}
 		return 1;
 	}
-};
+}
 
 int list_pop(struct doubly_linked_int_list ** head_ref, struct doubly_linked_int_list ** tail_ref, int * popped_value_ref){
 	if(*head_ref == NULL){
@@ -79,7 +79,7 @@ int list_pop(struct doubly_linked_int_list ** head_ref, struct doubly_linked_int
 		}
 		return 1;
 	}
-};
+}
 
 int list_insert(struct doubly_linked_int_list ** head_ref, struct doubly_linked_int_list ** tail_ref, struct doubly_linked_int_list * previous_node, int new_value){
 	struct doubly_linked_int_list * new_node = malloc(sizeof(struct doubly_linked_int_list));
@@ -112,7 +112,7 @@ int list_insert(struct doubly_linked_int_list ** head_ref, struct doubly_linked_
 		}
 		return 1;
 	}
-};
+}
 
 int list_delete(struct doubly_linked_int_list ** head_ref, struct doubly_linked_int_list ** tail_ref, int value_to_del){
 	if(*head_ref == NULL){
@@ -149,7 +149,7 @@ int list_delete(struct doubly_linked_int_list ** head_ref, struct doubly_linked_
 			return 0;
 		}
 	}
-};
+}
 
 void list_clear(struct doubly_linked_int_list ** head_ref, struct doubly_linked_int_list ** tail_ref){
 	struct doubly_linked_int_list * current_node = *head_ref;
@@ -161,7 +161,7 @@ void list_clear(struct doubly_linked_int_list ** head_ref, struct doubly_linked_
 	*head_ref = NULL;
 	*tail_ref = NULL;
 	return;
-};
+}
 
 void list_print(struct doubly_linked_int_list * head_ref){
 	struct doubly_linked_int_list * current_node = head_ref;
@@ -171,7 +171,7 @@ void list_print(struct doubly_linked_int_list * head_ref){
 	}
 	printf("\n");
 	return;
-};
+}
 
 void find_prev(struct doubly_linked_int_list * head_node, struct doubly_linked_int_list ** previous_ref, int new_value){
 	struct doubly_linked_int_list * current_node = head_node;
@@ -185,7 +185,7 @@ void find_prev(struct doubly_linked_int_list * head_node, struct doubly_linked_i
 		break;
 	}
 	return;
-};
+}
 
 int main(){
 	struct doubly_linked_int_list * head_of_list = NULL;
@@ -284,4 +284,4 @@ int main(){
 			printf("Invalid option.\n");
 		}
 	}
-};
+}

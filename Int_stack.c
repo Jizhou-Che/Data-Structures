@@ -25,7 +25,7 @@ int list_push(struct singly_linked_int_list ** head_ref, int new_value){
 		}
 		return 1;
 	}
-};
+}
 
 int list_pop(struct singly_linked_int_list ** head_ref, int * popped_value_ref){
 	if(*head_ref == NULL){
@@ -37,7 +37,7 @@ int list_pop(struct singly_linked_int_list ** head_ref, int * popped_value_ref){
 		free(temp);
 		return 1;
 	}
-};
+}
 
 void list_clear(struct singly_linked_int_list ** head_ref){
 	struct singly_linked_int_list * current_node = *head_ref;
@@ -48,7 +48,7 @@ void list_clear(struct singly_linked_int_list ** head_ref){
 	}
 	*head_ref = NULL;
 	return;
-};
+}
 
 void list_print(struct singly_linked_int_list * head_ref){
 	struct singly_linked_int_list * current_node = head_ref;
@@ -58,30 +58,30 @@ void list_print(struct singly_linked_int_list * head_ref){
 	}
 	printf("\n");
 	return;
-};
+}
 
 void stack_create(struct int_stack * stack_ref){
 	stack_ref->stack_list = NULL;
 	return;
-};
+}
 
 int stack_push(struct int_stack * stack_ref, int new_value){
 	return list_push(&(stack_ref->stack_list), new_value);
-};
+}
 
 int stack_pop(struct int_stack * stack_ref, int * popped_value_ref){
 	return list_pop(&(stack_ref->stack_list), popped_value_ref);
-};
+}
 
 void stack_clear(struct int_stack * stack_ref){
 	list_clear(&(stack_ref->stack_list));
 	return;
-};
+}
 
 void stack_print(struct int_stack * stack_ref){
 	list_print(stack_ref->stack_list);
 	return;
-};
+}
 
 int main(){
 	struct int_stack stack;
@@ -134,4 +134,4 @@ int main(){
 			printf("Invalid option.\n");
 		}
 	}
-};
+}

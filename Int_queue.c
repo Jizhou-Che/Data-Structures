@@ -27,7 +27,7 @@ int list_append(struct singly_linked_int_list ** head_ref, struct singly_linked_
 		}
 		return 1;
 	}
-};
+}
 
 int list_pop(struct singly_linked_int_list ** head_ref, struct singly_linked_int_list ** tail_ref, int * popped_value_ref){
 	if(*head_ref == NULL){
@@ -42,7 +42,7 @@ int list_pop(struct singly_linked_int_list ** head_ref, struct singly_linked_int
 		}
 		return 1;
 	}
-};
+}
 
 void list_clear(struct singly_linked_int_list ** head_ref, struct singly_linked_int_list ** tail_ref){
 	struct singly_linked_int_list * current_node = *head_ref;
@@ -54,7 +54,7 @@ void list_clear(struct singly_linked_int_list ** head_ref, struct singly_linked_
 	*head_ref = NULL;
 	*tail_ref = NULL;
 	return;
-};
+}
 
 void list_print(struct singly_linked_int_list * head_ref){
 	struct singly_linked_int_list * current_node = head_ref;
@@ -64,31 +64,31 @@ void list_print(struct singly_linked_int_list * head_ref){
 	}
 	printf("\n");
 	return;
-};
+}
 
 void queue_create(struct int_queue * queue_ref){
 	queue_ref->queue_list_head = NULL;
 	queue_ref->queue_list_tail = NULL;
 	return;
-};
+}
 
 int enqueue(struct int_queue * queue_ref, int new_value){
 	return list_append(&(queue_ref->queue_list_head), &(queue_ref->queue_list_tail), new_value);
-};
+}
 
 int dequeue(struct int_queue * queue_ref, int * dequeued_value_ref){
 	return list_pop(&(queue_ref->queue_list_head), &(queue_ref->queue_list_tail), dequeued_value_ref);
-};
+}
 
 void queue_clear(struct int_queue * queue_ref){
 	list_clear(&(queue_ref->queue_list_head), &(queue_ref->queue_list_tail));
 	return;
-};
+}
 
 void queue_print(struct int_queue * queue_ref){
 	list_print(queue_ref->queue_list_head);
 	return;
-};
+}
 
 int main(){
 	struct int_queue queue;
@@ -141,4 +141,4 @@ int main(){
 			printf("Invalid option.\n");
 		}
 	}
-};
+}

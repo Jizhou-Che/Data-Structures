@@ -22,7 +22,7 @@ int list_append(struct singly_linked_int_list ** head_ref, struct singly_linked_
 		}
 		return 1;
 	}
-};
+}
 
 int list_detach(struct singly_linked_int_list ** head_ref, struct singly_linked_int_list ** tail_ref, int * detached_value_ref){
 	if(*tail_ref == NULL){
@@ -44,7 +44,7 @@ int list_detach(struct singly_linked_int_list ** head_ref, struct singly_linked_
 		(*tail_ref)->next = NULL;
 		return 1;
 	}
-};
+}
 
 int list_push(struct singly_linked_int_list ** head_ref, struct singly_linked_int_list ** tail_ref, int new_value){
 	struct singly_linked_int_list * new_node = malloc(sizeof(struct singly_linked_int_list));
@@ -62,7 +62,7 @@ int list_push(struct singly_linked_int_list ** head_ref, struct singly_linked_in
 		}
 		return 1;
 	}
-};
+}
 
 int list_pop(struct singly_linked_int_list ** head_ref, struct singly_linked_int_list ** tail_ref, int * popped_value_ref){
 	if(*head_ref == NULL){
@@ -77,7 +77,7 @@ int list_pop(struct singly_linked_int_list ** head_ref, struct singly_linked_int
 		}
 		return 1;
 	}
-};
+}
 
 int list_insert(struct singly_linked_int_list ** head_ref, struct singly_linked_int_list ** tail_ref, struct singly_linked_int_list * previous_node, int new_value){
 	struct singly_linked_int_list * new_node = malloc(sizeof(struct singly_linked_int_list));
@@ -105,7 +105,7 @@ int list_insert(struct singly_linked_int_list ** head_ref, struct singly_linked_
 		}
 		return 1;
 	}
-};
+}
 
 int list_delete(struct singly_linked_int_list ** head_ref, struct singly_linked_int_list ** tail_ref, int value_to_del){
 	if(*head_ref == NULL){
@@ -142,7 +142,7 @@ int list_delete(struct singly_linked_int_list ** head_ref, struct singly_linked_
 			return 0;
 		}
 	}
-};
+}
 
 void list_clear(struct singly_linked_int_list ** head_ref, struct singly_linked_int_list ** tail_ref){
 	struct singly_linked_int_list * current_node = *head_ref;
@@ -154,7 +154,7 @@ void list_clear(struct singly_linked_int_list ** head_ref, struct singly_linked_
 	*head_ref = NULL;
 	*tail_ref = NULL;
 	return;
-};
+}
 
 void list_print(struct singly_linked_int_list * head_ref){
 	struct singly_linked_int_list * current_node = head_ref;
@@ -164,7 +164,7 @@ void list_print(struct singly_linked_int_list * head_ref){
 	}
 	printf("\n");
 	return;
-};
+}
 
 void find_prev(struct singly_linked_int_list * head_node, struct singly_linked_int_list ** previous_ref, int new_value){
 	struct singly_linked_int_list * current_node = head_node;
@@ -178,7 +178,7 @@ void find_prev(struct singly_linked_int_list * head_node, struct singly_linked_i
 		break;
 	}
 	return;
-};
+}
 
 int main(){
 	struct singly_linked_int_list * head_of_list = NULL;
@@ -277,4 +277,4 @@ int main(){
 			printf("Invalid option.\n");
 		}
 	}
-};
+}
