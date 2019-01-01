@@ -64,28 +64,27 @@ int dequeue(struct tree_queue * queue_ref){
 }
 
 int binary_search_tree_insert(struct binary_search_int_tree ** tree_ref, int new_value){
-	struct binary_search_int_tree * new_node = malloc(sizeof(struct binary_search_int_tree));
-	if(new_node == NULL){
-		return 0;
+	if(*tree_ref == NULL){
+		struct binary_search_int_tree * new_node = malloc(sizeof(struct binary_search_int_tree));
+		if(new_node == NULL){
+			return 0;
+		}
+		new_node->value = new_value;
+		new_node->left = NULL;
+		new_node->right = NULL;
+		*tree_ref = new_node;
 	}else{
-		if(*tree_ref == NULL){
-			new_node->value = new_value;
-			new_node->left = NULL;
-			new_node->right = NULL;
-			*tree_ref = new_node;
+		if(new_value <= (*tree_ref)->value){
+			if(!binary_search_tree_insert(&((*tree_ref)->left), new_value)){
+				return 0;
+			}
 		}else{
-			if(new_value <= (*tree_ref)->value){
-				if(!binary_search_tree_insert(&((*tree_ref)->left), new_value)){
-					return 0;
-				}
-			}else{
-				if(!binary_search_tree_insert(&((*tree_ref)->right), new_value)){
-					return 0;
-				}
+			if(!binary_search_tree_insert(&((*tree_ref)->right), new_value)){
+				return 0;
 			}
 		}
-		return 1;
 	}
+	return 1;
 }
 
 int binary_search_tree_delete(struct binary_search_int_tree ** tree_ref, int value_to_delete){
@@ -227,7 +226,7 @@ void binary_tree_clear(struct binary_search_int_tree ** tree_ref){
 		if((*tree_ref)->right != NULL){
 			binary_tree_clear(&((*tree_ref)->right));
 		}
-		free((*tree_ref));
+		free(*tree_ref);
 		*tree_ref = NULL;
 	}
 	return;
